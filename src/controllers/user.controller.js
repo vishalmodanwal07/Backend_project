@@ -5,7 +5,7 @@ import {uploadOnCloudinary} from "../utils/cloudinary.js"
 import { ApiResponse } from "../utils/ApiResponse.js";
 
 const registerUser =asyncHandler( async (req , res)=>{
-   const {fullname , email , username ,password} = req.body
+   const {fullName , email , username ,password} = req.body
    console.log("email : " , email);
    console.log("usename  : " , username);
 //validation
@@ -35,8 +35,8 @@ if(!avatarLocalPath){
 const avatar = await uploadOnCloudinary(avatarLocalPath);
 const coverImage = await uploadOnCloudinary(coverImageLocalPath);
 //validation for avatar
-if(! avatar){
-   throw  new ApiError(400 , "avatar is required");
+if(!avatar){
+   throw  new ApiError(400 , "avatar is require");
 }
 
 //create user in db 
